@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mente Brillante AI — Gana con tu cabeza, no con tu cuerpo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0F0E2B;
+    --ink-soft: #1B1A3F;
+    --paper: #FAF8F3;
+    --paper-dim: #EDEAE0;
+    --gold: #F2B84B;
+    --gold-deep: #D99B2B;
+    --line: rgba(250,248,243,0.14);
+    --text-dim: rgba(250,248,243,0.68);
+    font-size: 16px;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Work Sans', system-ui, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; margin: 0; line-height: 1.08; }
+  p { margin: 0; }
+  a { color: inherit; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 28px; }
+  img, svg { max-width: 100%; }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    padding: 92px 0 110px;
+    background:
+      radial-gradient(60% 50% at 82% 8%, rgba(242,184,75,0.20), transparent 70%),
+      linear-gradient(180deg, var(--ink) 0%, var(--ink-soft) 100%);
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-kicker {
+    font-size: 0.95rem;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    margin-bottom: 22px;
+  }
+  .hero h1 {
+    font-size: clamp(2.3rem, 5.4vw, 4rem);
+    font-weight: 600;
+    max-width: 14ch;
+    color: var(--paper);
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 500;
+  }
+  .hero-sub {
+    margin-top: 26px;
+    max-width: 46ch;
+    font-size: 1.15rem;
+    color: var(--text-dim);
+  }
+  .hero-cta-row {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 28px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+  }
+  .btn-gold { background: var(--gold); color: var(--ink); }
+  .btn-gold:hover { background: var(--gold-deep); }
+  .btn-ghost { background: transparent; color: var(--paper); border-color: var(--line); }
+  .price-tag { font-size: 0.92rem; color: var(--text-dim); }
+  .price-tag strong { color: var(--paper); }
+
+  /* ---------- CUERPO VS MENTE ---------- */
+  .contrast {
+    padding: 86px 0;
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .contrast h2 {
+    font-size: clamp(1.8rem, 3.6vw, 2.5rem);
+    font-weight: 600;
+    max-width: 18ch;
+  }
+  .contrast-lead {
+    margin-top: 18px;
+    max-width: 52ch;
+    font-size: 1.08rem;
+    color: rgba(15,14,43,0.72);
+  }
+  .vs-grid {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: rgba(15,14,43,0.14);
+    border: 1px solid rgba(15,14,43,0.14);
+  }
+  .vs-col { background: var(--paper); padding: 34px 30px; }
+  .vs-col.gold-side { background: var(--ink); color: var(--paper); }
+  .vs-label { font-size: 0.85rem; color: rgba(15,14,43,0.5); font-weight: 600; margin-bottom: 14px; }
+  .gold-side .vs-label { color: var(--gold); }
+  .vs-col ul { margin: 0; padding: 0; list-style: none; }
+  .vs-col li {
+    padding: 11px 0;
+    border-top: 1px solid rgba(15,14,43,0.1);
+    font-size: 1rem;
+  }
+  .gold-side li { border-top: 1px solid var(--line); }
+  .vs-col li:first-child { border-top: none; }
+
+  @media (max-width: 680px) {
+    .vs-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- METODOS ---------- */
+  .methods {
+    padding: 86px 0;
+    background: var(--ink);
+  }
+  .methods h2 {
+    font-size: clamp(1.8rem, 3.6vw, 2.5rem);
+    font-weight: 600;
+    color: var(--paper);
+    max-width: 16ch;
+  }
+  .methods-lead {
+    margin-top: 16px;
+    max-width: 50ch;
+    color: var(--text-dim);
+    font-size: 1.05rem;
+  }
+  .method-list {
+    margin-top: 44px;
+    display: flex;
+    flex-direction: column;
+  }
+  .method-row {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 22px;
+    padding: 26px 0;
+    border-top: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .method-row:last-child { border-bottom: 1px solid var(--line); }
+  .method-num {
+    font-family: 'Fraunces', serif;
+    font-size: 1.6rem;
+    color: var(--gold);
+    font-weight: 500;
+  }
+  .method-row h3 { font-size: 1.25rem; font-weight: 600; color: var(--paper); margin-bottom: 8px; }
+  .method-row p { color: var(--text-dim); font-size: 0.98rem; max-width: 60ch; }
+
+  /* ---------- PRICING ---------- */
+  .pricing {
+    padding: 86px 0 100px;
+    background: var(--paper-dim);
+    color: var(--ink);
+  }
+  .pricing h2 {
+    font-size: clamp(1.8rem, 3.6vw, 2.5rem);
+    font-weight: 600;
+  }
+  .pricing-lead {
+    margin-top: 16px;
+    max-width: 48ch;
+    color: rgba(15,14,43,0.68);
+    font-size: 1.05rem;
+  }
+  .price-cards {
+    margin-top: 46px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+  @media (max-width: 680px) { .price-cards { grid-template-columns: 1fr; } }
+  .price-card {
+    background: var(--paper);
+    border: 1px solid rgba(15,14,43,0.14);
+    padding: 34px 30px;
+    position: relative;
+  }
+  .price-card.featured { border-color: var(--gold-deep); border-width: 2px; }
+  .price-card .tag {
+    position: absolute;
+    top: -13px;
+    left: 30px;
+    background: var(--gold);
+    color: var(--ink);
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 100px;
+  }
+  .price-card h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 6px; }
+  .price-card .amount {
+    font-family: 'Fraunces', serif;
+    font-size: 2.6rem;
+    font-weight: 600;
+    margin: 14px 0 4px;
+  }
+  .price-card .per { font-size: 0.9rem; color: rgba(15,14,43,0.55); margin-bottom: 22px; display: block; }
+  .price-card ul { list-style: none; margin: 0 0 26px; padding: 0; }
+  .price-card li {
+    padding: 9px 0;
+    border-top: 1px solid rgba(15,14,43,0.1);
+    font-size: 0.96rem;
+  }
+  .price-card li:first-child { border-top: none; }
+  .price-card .btn-gold { width: 100%; justify-content: center; }
+
+  /* ---------- CHECKOUT ---------- */
+  .checkout {
+    padding: 86px 0 100px;
+    background: var(--ink-soft);
+  }
+  .checkout-inner { max-width: 620px; margin: 0 auto; text-align: center; }
+  .checkout h2 { font-size: clamp(1.7rem, 3.4vw, 2.3rem); font-weight: 600; color: var(--paper); }
+  .checkout-lead { margin-top: 14px; color: var(--text-dim); font-size: 1.02rem; }
+  .alias-box {
+    margin: 36px 0;
+    padding: 24px;
+    background: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+  }
+  .alias-box .label { font-size: 0.82rem; color: var(--text-dim); margin-bottom: 8px; }
+  .alias-box .alias {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+  .steps { text-align: left; margin: 30px 0; display: flex; flex-direction: column; gap: 14px; }
+  .step { display: grid; grid-template-columns: 28px 1fr; gap: 12px; font-size: 0.98rem; color: var(--paper); }
+  .step span.n {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--gold); color: var(--ink);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.85rem; font-family: 'Work Sans', sans-serif;
+  }
+  .step p { color: var(--text-dim); }
+  .checkout .btn-gold { padding: 17px 34px; font-size: 1.05rem; }
+  .fine { margin-top: 18px; font-size: 0.85rem; color: rgba(250,248,243,0.45); }
+
+  /* ---------- FAQ ---------- */
+  .faq { padding: 86px 0 110px; background: var(--paper); color: var(--ink); }
+  .faq h2 { font-size: clamp(1.8rem, 3.6vw, 2.5rem); font-weight: 600; margin-bottom: 44px; }
+  .faq-item { border-top: 1px solid rgba(15,14,43,0.14); padding: 24px 0; }
+  .faq-item:last-child { border-bottom: 1px solid rgba(15,14,43,0.14); }
+  .faq-item h3 { font-size: 1.08rem; font-weight: 600; margin-bottom: 8px; font-family: 'Work Sans', sans-serif; }
+  .faq-item p { color: rgba(15,14,43,0.68); font-size: 0.98rem; max-width: 62ch; }
+
+  footer {
+    background: var(--ink);
+    padding: 40px 0;
+    text-align: center;
+    color: rgba(250,248,243,0.4);
+    font-size: 0.85rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-kicker">Mente Brillante AI</div>
+    <h1>Tu próximo ingreso no va a salir de tu espalda.<br><em>Va a salir de tu cabeza.</em></h1>
+    <p class="hero-sub">Una guía en PDF con métodos reales para generar ingresos extra usando inteligencia artificial, pensada para arrancar hoy, sin inversión y sin saber de tecnología.</p>
+    <div class="hero-cta-row">
+      <a href="#precios" class="btn btn-gold">Quiero la guía</a>
+      <span class="price-tag">Desde <strong>$3.000 ARS</strong> · menos de un café por semana</span>
+    </div>
+  </div>
+</section>
+
+<section class="contrast">
+  <div class="wrap">
+    <h2>Hay dos formas de terminar el día cansado.</h2>
+    <p class="contrast-lead">Una te deja sin energía y sin nada que mostrar al mes siguiente. La otra te deja con una habilidad que se queda con vos para siempre.</p>
+    <div class="vs-grid">
+      <div class="vs-col">
+        <div class="vs-label">Cansancio físico</div>
+        <ul>
+          <li>Horas vendidas, no recuperables</li>
+          <li>El ingreso depende de seguir presente</li>
+          <li>Si parás un día, no cobrás ese día</li>
+          <li>El esfuerzo no se acumula en nada propio</li>
+        </ul>
+      </div>
+      <div class="vs-col gold-side">
+        <div class="vs-label">Trabajo con tu cabeza</div>
+        <ul>
+          <li>Una habilidad que no se gasta usándola</li>
+          <li>Herramientas de IA hacen la parte pesada</li>
+          <li>Podés empezar en los huecos del día</li>
+          <li>Lo que armás hoy te puede seguir dando frutos</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="methods">
+  <div class="wrap">
+    <h2>Lo que vas a encontrar adentro</h2>
+    <p class="methods-lead">La guía reúne varios caminos distintos para generar ingresos con IA — elegís el que más te cierre según tu tiempo disponible y lo que te gusta hacer.</p>
+    <div class="method-list">
+      <div class="method-row">
+        <span class="method-num">01</span>
+        <div>
+          <h3>Contenido asistido por IA</h3>
+          <p>Cómo generar textos, imágenes y guiones con herramientas gratuitas para vender como servicio o publicar en redes.</p>
+        </div>
+      </div>
+      <div class="method-row">
+        <span class="method-num">02</span>
+        <div>
+          <h3>Productos digitales simples</h3>
+          <p>Qué tipo de productos (plantillas, guías, recursos) se pueden armar rápido con ayuda de IA y dónde publicarlos.</p>
+        </div>
+      </div>
+      <div class="method-row">
+        <span class="method-num">03</span>
+        <div>
+          <h3>Servicios freelance apoyados en IA</h3>
+          <p>Tareas que hoy se pagan (edición, redacción, diseño básico) y cómo la IA te permite entregarlas más rápido.</p>
+        </div>
+      </div>
+      <div class="method-row">
+        <span class="method-num">04</span>
+        <div>
+          <h3>Automatización de tareas repetitivas</h3>
+          <p>Cómo usar IA para ahorrar tiempo en tareas que después podés ofrecer como servicio a otros.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="precios">
+  <div class="wrap">
+    <h2>Elegí tu guía</h2>
+    <p class="pricing-lead">Pago único, acceso de por vida al PDF. Sin suscripciones.</p>
+    <div class="price-cards">
+      <div class="price-card">
+        <h3>1 guía</h3>
+        <span class="amount">$3.000</span>
+        <span class="per">pesos argentinos · pago único</span>
+        <ul>
+          <li>PDF completo con los 4 métodos</li>
+          <li>Explicado paso a paso, sin tecnicismos</li>
+          <li>Acceso inmediato tras confirmar el pago</li>
+        </ul>
+        <a href="#checkout" class="btn btn-gold">Comprar esta guía</a>
+      </div>
+      <div class="price-card featured">
+        <span class="tag">Mejor precio por guía</span>
+        <h3>2 guías</h3>
+        <span class="amount">$5.000</span>
+        <span class="per">pesos argentinos · pago único</span>
+        <ul>
+          <li>Las dos guías disponibles</li>
+          <li>Ahorrás comparado con comprarlas por separado</li>
+          <li>Acceso inmediato tras confirmar el pago</li>
+        </ul>
+        <a href="#checkout" class="btn btn-gold">Llevar las 2</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="checkout" id="checkout">
+  <div class="wrap checkout-inner">
+    <h2>Cómo recibir tu guía</h2>
+    <p class="checkout-lead">El pago se confirma por transferencia. En cuanto la recibimos, te mandamos el PDF directo a tu WhatsApp o correo.</p>
+
+    <div class="alias-box">
+      <div class="label">Transferí al alias</div>
+      <div class="alias">mentebrillanteai.fiw</div>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <span class="n">1</span>
+        <p>Transferí $3.000 (1 guía) o $5.000 (2 guías) al alias <strong>mentebrillanteai.fiw</strong>.</p>
+      </div>
+      <div class="step">
+        <span class="n">2</span>
+        <p>Tocá el botón de abajo y mandanos el comprobante por WhatsApp.</p>
+      </div>
+      <div class="step">
+        <span class="n">3</span>
+        <p>Te respondemos con el link de descarga del PDF al toque.</p>
+      </div>
+    </div>
+
+    <a href="https://wa.me/5492644431125?text=Hola!%20Ya%20transfer%C3%AD%20al%20alias%20mentebrillanteai.fiw%2C%20te%20paso%20el%20comprobante%20para%20recibir%20mi%20gu%C3%ADa." class="btn btn-gold" target="_blank" rel="noopener">Ya transferí, mandar comprobante</a>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap">
+    <h2>Antes de comprar</h2>
+    <div class="faq-item">
+      <h3>¿Necesito experiencia con IA?</h3>
+      <p>No. La guía está escrita para alguien que nunca usó estas herramientas, con pasos concretos y sin vocabulario técnico.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Cuánto tiempo hay que dedicarle?</h3>
+      <p>Depende del método que elijas. Algunos se pueden probar en ratos sueltos; otros rinden más si les dedicás un rato fijo por día.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Cómo recibo el PDF?</h3>
+      <p>Después de confirmar tu transferencia por WhatsApp, te mandamos el link de descarga directo.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Es un ingreso garantizado?</h3>
+      <p>No. Es una guía de métodos y pasos a seguir — los resultados dependen de cuánto los apliques, como con cualquier habilidad nueva.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Mente Brillante AI — Guía digital en PDF. Pago único, sin suscripciones.
+</footer>
+
+</body>
+</html>
